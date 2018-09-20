@@ -21,8 +21,11 @@ http.get(url, function(sres) {
       //依据：“<meta http-equiv="Content-Type" content="text/html; charset=gb2312">”
       var html = iconv.decode(Buffer.concat(chunks), 'gb2312');
       var $ = cheerio.load(html, {decodeEntities: false});
+      console.log($);
       $('.co_content8 .ulink').each(function (idx, element) {
+        console.log(element);
         var $element = $(element);
+        console.log($element);
         titles.push({
           title: $element.text()
         })
